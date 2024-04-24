@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace tarkov_settings.Setting
+namespace auto_brightness_and_vibrance.Setting
 {
     class GameSetting
     {

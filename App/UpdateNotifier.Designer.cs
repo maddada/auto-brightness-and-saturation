@@ -1,5 +1,5 @@
 ﻿
-namespace tarkov_settings
+namespace auto_brightness_and_vibrance
 {
     partial class UpdateNotifier
     {
@@ -113,7 +113,7 @@ namespace tarkov_settings
             this.UpdateNotifyLabel.Name = "UpdateNotifyLabel";
             this.UpdateNotifyLabel.Size = new System.Drawing.Size(257, 52);
             this.UpdateNotifyLabel.TabIndex = 6;
-            this.UpdateNotifyLabel.Text = "Tarkov Settings\r\nUpdate is Available!";
+            this.UpdateNotifyLabel.Text = "Auto Brightness and Vibrance\r\nUpdate is Available!";
             this.UpdateNotifyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1

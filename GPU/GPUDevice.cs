@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Management;
 
-namespace tarkov_settings.GPU
+namespace auto_brightness_and_vibrance.GPU
 {
     public enum GPUVendor
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-using tarkov_settings.GPU;
+using auto_brightness_and_vibrance.GPU;
 
-namespace tarkov_settings
+namespace auto_brightness_and_vibrance
 {
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     public struct RAMP
@@ -39,7 +39,7 @@ namespace tarkov_settings
                 if (displays.Contains(value))
                 {
                     _primary = value;
-                    
+
                 }
                 else
                 {

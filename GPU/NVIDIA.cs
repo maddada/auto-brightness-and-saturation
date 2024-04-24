@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using NvAPIWrapper.Native;
 using NvAPIWrapper.Native.Display.Structures;
 
-namespace tarkov_settings.GPU
+namespace auto_brightness_and_vibrance.GPU
 {
     class NVIDIA : IGPU
     {
@@ -58,7 +58,7 @@ namespace tarkov_settings.GPU
         public NVIDIA(GPUVendor vendor)
         {
             try
-            { 
+            {
                 NvAPIWrapper.NVIDIA.Initialize();
             }
             catch (NvAPIWrapper.Native.Exceptions.NVIDIAApiException)
@@ -73,7 +73,8 @@ namespace tarkov_settings.GPU
             this.Saturation = this.InitSaturation;
         }
 
-        public void Load(string display) {
+        public void Load(string display)
+        {
             displayHandle = DisplayApi.GetAssociatedNvidiaDisplayHandle(display);
             PrivateDisplayDVCInfo dvcInfo = DisplayApi.GetDVCInfo(displayHandle);
             this._maxSaturation = dvcInfo.MaximumLevel;
@@ -81,7 +82,8 @@ namespace tarkov_settings.GPU
             this._initSaturation = this.currentSaturation = dvcInfo.CurrentLevel;
         }
 
-        public void Close() {
+        public void Close()
+        {
             try
             {
                 NvAPIWrapper.NVIDIA.Unload();

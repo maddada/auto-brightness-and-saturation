@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Net.Http;
 using System.Windows.Forms;
-using tarkov_settings.Setting;
-using tarkov_settings.GPU;
+using auto_brightness_and_vibrance.Setting;
+using auto_brightness_and_vibrance.GPU;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Diagnostics;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace tarkov_settings
+namespace auto_brightness_and_vibrance
 {
 
     public partial class MainForm : Form
@@ -19,30 +19,26 @@ namespace tarkov_settings
 
         private bool minimizeOnStart = false;
 
-
- 
         // DLL libraries used to manage hotkeys
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
         [DllImport("user32.dll")]
         public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
-        const int AllMapHotkey = 1;
-        const int InterchangeMapHotkey = 2;
+        const int Profile1Hotkey = 1;
+        const int Profile2Hotkey = 2;
         const int DefaultHotkey = 3;
         const int GammaUp = 4;
         const int GammaDown = 5;
         const int ForceApply = 6;
 
-
-
         public MainForm()
         {
             InitializeComponent();
 
-            RegisterHotKey(this.Handle, AllMapHotkey, 1, (int)Keys.NumPad1);
-            RegisterHotKey(this.Handle, InterchangeMapHotkey, 1, (int)Keys.NumPad2);
-            RegisterHotKey(this.Handle, DefaultHotkey, 1, (int)Keys.NumPad3);
+            RegisterHotKey(this.Handle, Profile1Hotkey, 1, (int)Keys.F10);
+            RegisterHotKey(this.Handle, Profile2Hotkey, 1, (int)Keys.F11);
+            RegisterHotKey(this.Handle, DefaultHotkey, 1, (int)Keys.F12);
             RegisterHotKey(this.Handle, GammaUp, 1, (int)Keys.Up);
             RegisterHotKey(this.Handle, GammaDown, 1, (int)Keys.Down);
             RegisterHotKey(this.Handle, ForceApply, 1, (int)Keys.NumPad0);
@@ -67,7 +63,7 @@ namespace tarkov_settings
             #endregion
 
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            this.Text = String.Format("Tarkov Settings {0}", version);
+            this.Text = String.Format("Auto Brightness and Vibrance {0}", version);
             _ = new UpdateNotifier(version);
 
             // Saturation Initialize
@@ -80,8 +76,8 @@ namespace tarkov_settings
             {
                 DisplayCombo.Items.Add(display);
             }
-            
-            if(DisplayCombo.FindString(appSetting.display) != -1)
+
+            if (DisplayCombo.FindString(appSetting.display) != -1)
                 DisplayCombo.SelectedIndex = DisplayCombo.FindString(appSetting.display);
 
             Display.Primary = (string)DisplayCombo.SelectedItem;
@@ -121,39 +117,39 @@ namespace tarkov_settings
             set => DVLBar.Value = value;
         }
 
-        public int Prof1Brigtness
+        public double Prof1Brigtness
         {
-            get => int.Parse(profile1BrightnessText.Text);
+            get => double.Parse(profile1BrightnessText.Text);
             set => profile1BrightnessText.Text = value.ToString();
         }
 
-        public int Prof1Contrast
+        public double Prof1Contrast
         {
-            get => int.Parse(profile1ContrastText.Text);
+            get => double.Parse(profile1ContrastText.Text);
             set => profile1ContrastText.Text = value.ToString();
         }
 
-        public int Prof1Gamma
+        public double Prof1Gamma
         {
-            get => int.Parse(profile1GammaText.Text);
+            get => double.Parse(profile1GammaText.Text);
             set => profile1GammaText.Text = value.ToString();
         }
 
-        public int Prof2Brigtness
+        public double Prof2Brigtness
         {
-            get => int.Parse(profile2BrightnessText.Text);
+            get => double.Parse(profile2BrightnessText.Text);
             set => profile2BrightnessText.Text = value.ToString();
         }
 
-        public int Prof2Contrast
+        public double Prof2Contrast
         {
-            get => int.Parse(profile2ContrastText.Text);
+            get => double.Parse(profile2ContrastText.Text);
             set => profile2ContrastText.Text = value.ToString();
         }
 
-        public int Prof2Gamma
+        public double Prof2Gamma
         {
-            get => int.Parse(profile2GammaText.Text);
+            get => double.Parse(profile2GammaText.Text);
             set => profile2GammaText.Text = value.ToString();
         }
 
@@ -168,7 +164,7 @@ namespace tarkov_settings
         }
         #endregion
 
-        public bool IsEnabled { get=> this.enableToolStripMenuItem.Checked;}
+        public bool IsEnabled { get => this.enableToolStripMenuItem.Checked; }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -178,7 +174,7 @@ namespace tarkov_settings
                 this.ShowInTaskbar = false;
                 this.trayIcon.ShowBalloonTip(
                     2500,
-                    "Tarkov Settings Initailized!",
+                    "Auto Brightness and Vibrance Initailized!",
                     "Check out tray to modify your color setting",
                     ToolTipIcon.Info
                     );
@@ -189,7 +185,7 @@ namespace tarkov_settings
         private void ColorLabel_DClick(object sender, EventArgs e)
         {
             var label = sender as Label;
-            
+
             if (label.Equals(BrightnessLabel))
             {
                 BrightnessBar.Value = 50;
@@ -214,17 +210,17 @@ namespace tarkov_settings
             cController.Init();
         }
 
-        private void AllMapButtonClick(object sender, EventArgs e)
+        private void Profile1ButtonClick(object sender, EventArgs e)
         {
             try
             {
-                int profile1Brightness = int.Parse(profile1BrightnessText.Text);
-                int profile1Contrast = int.Parse(profile1ContrastText.Text);
-                int profile1Gamma = int.Parse(profile1GammaText.Text);
-                BrightnessBar.Value = profile1Brightness;
-                ContrastBar.Value = profile1Contrast;
-                GammaBar.Value = profile1Gamma;
-                DVLBar.Value = 10;
+                double profile1Brightness = double.Parse(profile1BrightnessText.Text);
+                double profile1Contrast = double.Parse(profile1ContrastText.Text);
+                double profile1Gamma = double.Parse(profile1GammaText.Text);
+                BrightnessBar.Value = (int)(profile1Brightness * 100);
+                ContrastBar.Value = (int)(profile1Contrast * 100);
+                GammaBar.Value = (int)(profile1Gamma * 100);
+                //DVLBar.Value = 10;
             }
             catch
             {
@@ -232,17 +228,17 @@ namespace tarkov_settings
             }
         }
 
-        private void InterchangeMapButtonClick(object sender, EventArgs e)
+        private void Profile2ButtonClick(object sender, EventArgs e)
         {
             try
             {
-                int profile2Brightness = int.Parse(profile2BrightnessText.Text);
-                int profile2Contrast = int.Parse(profile2ContrastText.Text);
-                int profile2Gamma = int.Parse(profile2GammaText.Text);
-                BrightnessBar.Value = profile2Brightness;
-                ContrastBar.Value = profile2Contrast;
-                GammaBar.Value = profile2Gamma;
-                DVLBar.Value = 10;
+                double profile2Brightness = double.Parse(profile2BrightnessText.Text);
+                double profile2Contrast = double.Parse(profile2ContrastText.Text);
+                double profile2Gamma = double.Parse(profile2GammaText.Text);
+                BrightnessBar.Value = (int)(profile2Brightness * 100);
+                ContrastBar.Value = (int)(profile2Contrast * 100);
+                GammaBar.Value = (int)(profile2Gamma * 100);
+                //DVLBar.Value = 10;
             }
             catch
             {
@@ -260,7 +256,7 @@ namespace tarkov_settings
 
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == 0x0312 && m.WParam.ToInt32() == AllMapHotkey)
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == Profile1Hotkey)
             {
                 try
                 {
@@ -276,7 +272,7 @@ namespace tarkov_settings
                                 contrast: ContrastBar.Value / 100.0,
                                 gamma: GammaBar.Value / 100.0,
                                 reset: false);
-                    cController.DVL = 10;                
+                    cController.DVL = 10;
                 }
                 catch
                 {
@@ -285,7 +281,7 @@ namespace tarkov_settings
             }
 
 
-            if (m.Msg == 0x0312 && m.WParam.ToInt32() == InterchangeMapHotkey)
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == Profile2Hotkey)
             {
                 try
                 {
@@ -334,7 +330,7 @@ namespace tarkov_settings
                 }
             }
 
-                if (m.Msg == 0x0312 && m.WParam.ToInt32() == GammaDown)
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == GammaDown)
             {
                 if (GammaBar.Value > 40)
                 {
@@ -385,7 +381,7 @@ namespace tarkov_settings
             string selectedDisplay = (string)DisplayCombo.SelectedItem;
             Display.Primary = selectedDisplay;
 
-            if(Display.Primary != selectedDisplay)
+            if (Display.Primary != selectedDisplay)
             {
                 DisplayCombo.SelectedIndex = DisplayCombo.FindString(Display.Primary);
             }

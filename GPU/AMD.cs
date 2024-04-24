@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tarkov_settings.GPU
+namespace auto_brightness_and_vibrance.GPU
 {
     class AMD : IGPU
     {
@@ -16,7 +16,7 @@ namespace tarkov_settings.GPU
 
         public int Saturation
         {
-            get;set;
+            get; set;
         }
 
         int IGPU.MaxSaturation => throw new NotImplementedException();

@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Windows.Forms;
 
-namespace tarkov_settings
+namespace auto_brightness_and_vibrance
 {
     public partial class UpdateNotifier : Form
     {

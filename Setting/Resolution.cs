@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tarkov_settings.Setting
+namespace auto_brightness_and_vibrance.Setting
 {
     class Resolution
     {

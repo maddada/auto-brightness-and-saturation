@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 
-using tarkov_settings.GPU;
+using auto_brightness_and_vibrance.GPU;
 
-namespace tarkov_settings
+namespace auto_brightness_and_vibrance
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace tarkov_settings
             try
             {
                 gpu = GPUDevice.Instance;
-                if(gpu.Vendor == GPUVendor.AMD)
+                if (gpu.Vendor == GPUVendor.AMD)
                 {
                     /* AMD Saturation (equals to Digital Vibrance of Nvidia) is not supported yet. */
                     System.Windows.Forms.MessageBox.Show(
@@ -26,7 +26,8 @@ namespace tarkov_settings
                             System.Windows.Forms.MessageBoxIcon.Warning
                         );
                 }
-            } catch (NotImplementedException)
+            }
+            catch (NotImplementedException)
             {
                 System.Windows.Forms.MessageBox.Show(
                         "Intel/Nvidia Optimus/Etc Device Detected - Will be supported soon",
@@ -45,7 +46,7 @@ namespace tarkov_settings
             Application.Run(mForm);
 
             // Unload NvAPI dll after Application.Exit()
-            if(gpu != null)
+            if (gpu != null)
                 gpu.Close();
         }
     }

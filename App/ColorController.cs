@@ -3,9 +3,9 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
-using tarkov_settings.GPU;
+using auto_brightness_and_vibrance.GPU;
 
-namespace tarkov_settings
+namespace auto_brightness_and_vibrance
 {
     class ColorController
     {

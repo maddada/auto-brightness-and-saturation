@@ -1,4 +1,4 @@
-﻿namespace tarkov_settings.GPU
+﻿namespace auto_brightness_and_vibrance.GPU
 {
     internal interface IGPU
     {

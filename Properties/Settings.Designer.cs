@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace tarkov_settings.Properties
+namespace auto_brightness_and_vibrance.Properties
 {
 
 

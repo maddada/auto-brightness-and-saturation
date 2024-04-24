@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace tarkov_settings
+namespace auto_brightness_and_vibrance
 {
     static class NativeMethods
     {
