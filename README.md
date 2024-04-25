@@ -3,8 +3,12 @@
 <h3 align="left">
     <b><a href="https://github.com/maddada/auto-brightness-and-saturation/releases/latest"> Download Maddada's Auto Brightness and Saturation </a></b>      
 </h3>
-<h4 align="left">
-  Thank you to <a href="https://github.com/incheon-kim">incheon-kim</a> for creating Tarkov Settings which this project is based off.
+
+<br/>
+
+<h4>
+    Huge thank you to <a href="https://github.com/incheon-kim">incheon-kim</a> for creating Tarkov Settings which this project is based off. <br/>
+    Also thank you to <a href="https://github.com/panicaz">panicaz</a> for adding some great features (hotkeys, profiles, exclusive full screen support).
 </h4>
 
 <br/>
@@ -75,7 +79,7 @@ You can change any of the following color settings:
 
 <br/>
 
-### [@panicaz](https://github.com/panicaz) added these great additions also:
+### [@panicaz](https://github.com/panicaz)'s features:
 - Added 3 customizable presets 
 - Added hotkeys for the presets (alt+Num1, alt+Num2, alt+Num3)
 - Added hotkeys for +10 and -10 gamma offset (alt+UP, alt+DOWN)
