@@ -1,43 +1,46 @@
-# tarkov-settings (fullscreen hotkey +presets branch)
-![screenshot](./1.png)
-I am by no means a C# programmer and my code is terrible. Do not use unless absolutely necessary. Better wait for original tarkov-settings updates.
-All the changes can be helpful for fullscreen users since tarkov-setting does not work in fullscreen mode
-+ added 3 customizable presets 
-+ added hotkeys for the presets (alt+Num1, alt+Num2, alt+Num3)
-+ added hotkeys for +10 and -10 gamma offset (alt+UP, alt+DOWN)
-+ added manual apply with a hotkey (alt+Num0)
-- fixed brigtness and contrast bars min values (did nothing below 0)
+<br/>
 
+<h3 align="left">
+    <b><a href="https://github.com/maddada/auto-brightness-and-saturation/releases/latest"> Download Maddada's Auto Brightness and Saturation </a></b>      
+</h3>
+<h4 align="left">
+  Thank you to <a href="https://github.com/incheon-kim">incheon-kim</a> for creating Tarkov Settings which this project is based off.
+</h4>
 
-## ORIGINAL TEXT BELOW
+<br/>
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fincheon-kim%2Ftarkov-settings&count_bg=%238C8C8C&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
+### Description:
+Automatically change color settings for CS2, Escape From Tarkov, and other games (please post requests in the discussions).
 
-## [->**DOWNLOAD Latest**<-](https://github.com/incheon-kim/tarkov-settings/releases/latest)
+<br/>
 
-Automatically change color settings for [Escape from Tarkov](https://escapefromtarkov.com).
-
-## How it works?
+### How it works?
 - Changes Digital Vibrance value from Nvidia Settings using [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper)
 - Changes Gamma using some [Win32 API calls](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-setdevicegammaramp)
 
-It only changes your display's colors when Escape from Tarkov's window is in focus.
+It only changes your display's colors when the program's window is in focus.
 This leaves a smooth transition when minimizing/maximizing.
 
-## Supported Graphic Cards
-- Nvidia GPU **fully supported.** (Brightness/Contrast/Gamma/Saturation)
-- AMD GPU **partially supported.** (Except Saturation)
+<br/>
+
+### Supported Graphic Cards:
+- Nvidia GPUs **fully supported.** (Brightness/Contrast/Gamma/Digital Vibrance)
+- AMD GPUs **partially supported.** (Except Saturation)
 - **Intel/Etc is not supported yet.**
 
-## What does it do?
+<br/>
+
+### What does it do?
 You can change any of the following color settings:
 1. Brightness
 2. Contrast
 3. Gamma
 4. Digital Vibrance Control (aka. Saturation)
-5. Only affects display while EFT window is focussed (It also prevents **sudden flash during Alt-tabbing**)
+5. Only affects display while the program's window is focussed (It also prevents **sudden flash during Alt-tabbing**)
 
-## How to Use
+<br/>
+
+### How to Use:
 1. Open application (SmartGuard might prevent opening as it's not signed)
 2. Set any color value
 2.1. Double-click any slider labels to reset their values.
@@ -46,26 +49,35 @@ You can change any of the following color settings:
 
 **Exit the app from your taskbar to create a `settings.json` file that will remember your settings**
 
-## Warning
-1. It might blink couple times when you active EFT window but it works. Don't worry.
+<br/>
+
+### Warnings:
+1. It might blink couple times when you activate the program's window but it works. Don't worry.
 2. **Disclaimer: I don't know BSG will ban for using this.**
 3. AMD only supports Brightness/Contrast/Gamma Controls
 4. Intel Graphic Cards are not supported
 5. Only works in **Borderless mode.**
 6. Nvidia Optimus Environment (mostly laptops) is not tested.
 
-## TODO / Feature
-- [x] Process Focusing Awareness
-- [x] Digital Vibrance Value Change
-- [x] Gamma Value Change
-- [x] Brightness, Contrast, Gamma Value modify
-- [x] GUI
-- [x] ini or json configuration
-- [x] Process Changeability (Not only for EscapeFromTarkov)
-- [x] change display(monitor) target
-- [x] Minimize to tray
-- [ ] Profiles
-- [ ] Hot Keys
-- [ ] EFT setting modify (Framelimit or Graphic Settings)
+<br/>
 
-Thanks for your support!
+### Features:
+- Process Focusing Awareness
+- Digital Vibrance Value Change
+- Gamma Value Change
+- Brightness, Contrast, Gamma Value modify
+- INI or JSON configuration
+- Process Changeability (Not only for EscapeFromTarkov)
+- change display(monitor) target
+- Minimize to tray
+- Profiles
+- Hot Keys
+
+<br/>
+
+### [@panicaz](https://github.com/panicaz) added these great additions also:
+- Added 3 customizable presets 
+- Added hotkeys for the presets (alt+Num1, alt+Num2, alt+Num3)
+- Added hotkeys for +10 and -10 gamma offset (alt+UP, alt+DOWN)
+- Added manual apply with a hotkey (alt+Num0)
+- Fixed brigtness and contrast bars min values (did nothing below 0)
