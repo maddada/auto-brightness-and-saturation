@@ -14,7 +14,7 @@
 <br/>
 
 ### Description:
-Automatically change color settings for CS2, Escape From Tarkov, and other games (please post requests in the discussions).
+Automatically change color settings for CS2, Escape From Tarkov, and other games/programs (please post requests in the discussions).
 
 <br/>
 
