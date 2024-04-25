@@ -10,8 +10,8 @@ namespace auto_brightness_and_vibrance
 
         // Utilize repository's file as version notifier
         // I know it sounds very dangerous. but i am broke as hell.
-        private string downloadUrl = @"https://github.com/incheon-kim/tarkov-settings/releases/latest";
-        private string checkUrl = @"https://raw.githubusercontent.com/incheon-kim/tarkov-settings/main/version";
+        private string downloadUrl = @"https://github.com/maddada/auto-brightness-and-vibrance/releases/latest";
+        private string checkUrl = @"https://raw.githubusercontent.com/maddada/auto-brightness-and-vibrance/main/version";
         public UpdateNotifier(Version current)
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace auto_brightness_and_vibrance
                     UpdateNotifyLabel.Text = "Update Check Failure\nPlease Visit Github Repository";
                     latestLabel.Visible = LatestVersionLabel.Visible = false;
                     UpdateButton.Text = "Visit";
-                    downloadUrl = @"https://github.com/incheon-kim/tarkov-settings";
+                    downloadUrl = @"https://github.com/maddada/auto-brightness-and-vibrance";
                     this.ShowDialog();
                 }
             }

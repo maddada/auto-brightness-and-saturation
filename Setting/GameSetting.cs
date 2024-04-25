@@ -10,16 +10,16 @@ namespace auto_brightness_and_vibrance.Setting
     class GameSetting
     {
         private readonly string settingPath;
-        private TarkovSetting setting;
+        private ColorSetting setting;
 
         public GameSetting()
         {
-            settingPath = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Escape from Tarkov\local.ini");
+            settingPath = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\auto-brightness-and-vibrance\local.ini");
 
             using (StreamReader file = File.OpenText(settingPath))
             {
                 JsonSerializer serializer = new JsonSerializer();
-                setting = (TarkovSetting)serializer.Deserialize(file, typeof(TarkovSetting));
+                setting = (ColorSetting)serializer.Deserialize(file, typeof(ColorSetting));
             }
             Console.WriteLine(setting);
         }

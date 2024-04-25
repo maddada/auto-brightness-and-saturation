@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace auto_brightness_and_vibrance.Setting
 {
-    class TarkovSetting
+    class ColorSetting
     {
         public Resolution Resolution { get; set; }
         public int ResolutionIndex { get; set; }
