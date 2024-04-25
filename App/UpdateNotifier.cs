@@ -8,10 +8,8 @@ namespace auto_brightness_and_vibrance
     {
         private Version current, latest;
 
-        // Utilize repository's file as version notifier
-        // I know it sounds very dangerous. but i am broke as hell.
         private string downloadUrl = @"https://github.com/maddada/auto-brightness-and-vibrance/releases/latest";
-        private string checkUrl = @"https://raw.githubusercontent.com/maddada/auto-brightness-and-vibrance/main/version";
+        private string checkUrl = @"https://raw.githubusercontent.com/maddada/auto-brightness-and-saturation/main/version";
         public UpdateNotifier(Version current)
         {
             InitializeComponent();
@@ -32,7 +30,7 @@ namespace auto_brightness_and_vibrance
                     string version = await response.Content.ReadAsStringAsync();
                     this.LatestVersionLabel.Text = version;
                     latest = new Version(version);
-                    if(latest > current)
+                    if (latest > current)
                     {
                         this.ShowDialog();
                     }
